@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span><a name="line.1">   package comp3110.mechanismsDomain;</a>
+<span class="sourceLineNo">002</span><a name="line.2"></a>
+<span class="sourceLineNo">003</span><a name="line.3">  /**</a>
+<span class="sourceLineNo">004</span><a name="line.4">   * All transitions between states in an xtUML state model are implemented as instances of the Transition</a>
+<span class="sourceLineNo">005</span><a name="line.5">   * class.</a>
+<span class="sourceLineNo">006</span><a name="line.6">   */</a>
+<span class="sourceLineNo">007</span><a name="line.7">   public class Transition {</a>
+<span class="sourceLineNo">008</span><a name="line.8">   </a>
+<span class="sourceLineNo">009</span><a name="line.9">      State fromState;</a>
+<span class="sourceLineNo">010</span><a name="line.10">      State toState;</a>
+<span class="sourceLineNo">011</span><a name="line.11">      int   event;</a>
+<span class="sourceLineNo">012</span><a name="line.12">   </a>
+<span class="sourceLineNo">013</span><a name="line.13">      /**</a>
+<span class="sourceLineNo">014</span><a name="line.14">      * Constructs a transition between two states that will occur in response to</a>
+<span class="sourceLineNo">015</span><a name="line.15">      * a given event.</a>
+<span class="sourceLineNo">016</span><a name="line.16">      *</a>
+<span class="sourceLineNo">017</span><a name="line.17">      * @param fromState the state from which the event will cause a transition</a>
+<span class="sourceLineNo">018</span><a name="line.18">      * @param toState the state to which the object is required to move</a>
+<span class="sourceLineNo">019</span><a name="line.19">      * @param event the ID of the event that will cause the transition</a>
+<span class="sourceLineNo">020</span><a name="line.20">      */</a>
+<span class="sourceLineNo">021</span><a name="line.21">      public Transition(State fromState, State toState, int event) {</a>
+<span class="sourceLineNo">022</span><a name="line.22">         this.fromState  = fromState;</a>
+<span class="sourceLineNo">023</span><a name="line.23">         this.toState    = toState;</a>
+<span class="sourceLineNo">024</span><a name="line.24">         this.event      = event;</a>
+<span class="sourceLineNo">025</span><a name="line.25">      }</a>
+<span class="sourceLineNo">026</span><a name="line.26">   </a>
+<span class="sourceLineNo">027</span><a name="line.27">      /**</a>
+<span class="sourceLineNo">028</span><a name="line.28">      * returns the from state of the transition</a>
+<span class="sourceLineNo">029</span><a name="line.29">      *</a>
+<span class="sourceLineNo">030</span><a name="line.30">      * @return the from state</a>
+<span class="sourceLineNo">031</span><a name="line.31">      */</a>
+<span class="sourceLineNo">032</span><a name="line.32">      public State getFromState() {</a>
+<span class="sourceLineNo">033</span><a name="line.33">         return fromState;</a>
+<span class="sourceLineNo">034</span><a name="line.34">      }</a>
+<span class="sourceLineNo">035</span><a name="line.35">   </a>
+<span class="sourceLineNo">036</span><a name="line.36">     /**</a>
+<span class="sourceLineNo">037</span><a name="line.37">      * returns the to state of the transition</a>
+<span class="sourceLineNo">038</span><a name="line.38">      *</a>
+<span class="sourceLineNo">039</span><a name="line.39">      * @return the to state</a>
+<span class="sourceLineNo">040</span><a name="line.40">      */</a>
+<span class="sourceLineNo">041</span><a name="line.41">      public State getToState() {</a>
+<span class="sourceLineNo">042</span><a name="line.42">         return toState;</a>
+<span class="sourceLineNo">043</span><a name="line.43">      }</a>
+<span class="sourceLineNo">044</span><a name="line.44">   </a>
+<span class="sourceLineNo">045</span><a name="line.45">     /**</a>
+<span class="sourceLineNo">046</span><a name="line.46">      * returns the ID of the event associated with the transition</a>
+<span class="sourceLineNo">047</span><a name="line.47">      *</a>
+<span class="sourceLineNo">048</span><a name="line.48">      * @return the event ID</a>
+<span class="sourceLineNo">049</span><a name="line.49">      */</a>
+<span class="sourceLineNo">050</span><a name="line.50">      public int getEvent() {</a>
+<span class="sourceLineNo">051</span><a name="line.51">         return event;</a>
+<span class="sourceLineNo">052</span><a name="line.52">      }</a>
+<span class="sourceLineNo">053</span><a name="line.53">   </a>
+<span class="sourceLineNo">054</span><a name="line.54">   }</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

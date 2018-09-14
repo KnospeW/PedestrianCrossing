@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span><a name="line.1">  package comp3110;</a>
+<span class="sourceLineNo">002</span><a name="line.2"></a>
+<span class="sourceLineNo">003</span><a name="line.3"></a>
+<span class="sourceLineNo">004</span><a name="line.4">   import comp3110.crossingDomain.*;</a>
+<span class="sourceLineNo">005</span><a name="line.5">   import comp3110.simulatedCrossingHardwareDomain.*;</a>
+<span class="sourceLineNo">006</span><a name="line.6">   import comp3110.mechanismsDomain.*;</a>
+<span class="sourceLineNo">007</span><a name="line.7"></a>
+<span class="sourceLineNo">008</span><a name="line.8">/**</a>
+<span class="sourceLineNo">009</span><a name="line.9"> *</a>
+<span class="sourceLineNo">010</span><a name="line.10"> * This is the main program for the pedestrian crossing application. It creates each of the</a>
+<span class="sourceLineNo">011</span><a name="line.11"> * executable domains in the application (instances of {@link comp8120.crossingDomain.CrossingDomain</a>
+<span class="sourceLineNo">012</span><a name="line.12"> * CrossingDomain} and {@link comp8120.simulatedCrossingHardwareDomain.SimulatedCrossingHardwareDomain</a>
+<span class="sourceLineNo">013</span><a name="line.13"> * SimulatedCrossingHardwareDomain}) and connects them together with an explicit bridge. The domains</a>
+<span class="sourceLineNo">014</span><a name="line.14"> * are then initialised and the application event queue is started. The program will then start responding</a>
+<span class="sourceLineNo">015</span><a name="line.15"> * to exeternal events.</a>
+<span class="sourceLineNo">016</span><a name="line.16"> */</a>
+<span class="sourceLineNo">017</span><a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span><a name="line.19">   // Main programs are declared within a class that extends</a>
+<span class="sourceLineNo">020</span><a name="line.20">   // comp8120.mechanismsDomain.Application.</a>
+<span class="sourceLineNo">021</span><a name="line.21">   //</a>
+<span class="sourceLineNo">022</span><a name="line.22">   public class Crossing extends Application {</a>
+<span class="sourceLineNo">023</span><a name="line.23">   </a>
+<span class="sourceLineNo">024</span><a name="line.24">      /**</a>
+<span class="sourceLineNo">025</span><a name="line.25">       * The initialise() method creates and connects the executable domains</a>
+<span class="sourceLineNo">026</span><a name="line.26">       * of the application. It then starts the application event queue. </a>
+<span class="sourceLineNo">027</span><a name="line.27">       *</a>
+<span class="sourceLineNo">028</span><a name="line.28">       * See the &lt;A HREF="../src-html/comp8120/Crossing.html"&gt;source code&lt;/A&gt; for commented implementation.</a>
+<span class="sourceLineNo">029</span><a name="line.29">       */</a>
+<span class="sourceLineNo">030</span><a name="line.30">      public void initialise() {</a>
+<span class="sourceLineNo">031</span><a name="line.31">         </a>
+<span class="sourceLineNo">032</span><a name="line.32">         // Create instances of the two executable domains involved in the</a>
+<span class="sourceLineNo">033</span><a name="line.33">         // microwave oven</a>
+<span class="sourceLineNo">034</span><a name="line.34">         //</a>
+<span class="sourceLineNo">035</span><a name="line.35">         CrossingDomain                  crossingDomain  = new CrossingDomain();</a>
+<span class="sourceLineNo">036</span><a name="line.36">         SimulatedCrossingHardwareDomain hardwareDomain  = new SimulatedCrossingHardwareDomain();</a>
+<span class="sourceLineNo">037</span><a name="line.37">         </a>
+<span class="sourceLineNo">038</span><a name="line.38">         // Establish the explicit bridge between the Microwave and Hardware domains</a>
+<span class="sourceLineNo">039</span><a name="line.39">         //</a>
+<span class="sourceLineNo">040</span><a name="line.40">         crossingDomain.setHardwareEE(hardwareDomain);</a>
+<span class="sourceLineNo">041</span><a name="line.41">         hardwareDomain.setCrossingEE(crossingDomain);</a>
+<span class="sourceLineNo">042</span><a name="line.42">         </a>
+<span class="sourceLineNo">043</span><a name="line.43">         // Initialise the two domains</a>
+<span class="sourceLineNo">044</span><a name="line.44">         //</a>
+<span class="sourceLineNo">045</span><a name="line.45">         hardwareDomain.initialise();</a>
+<span class="sourceLineNo">046</span><a name="line.46">         crossingDomain.initialise();</a>
+<span class="sourceLineNo">047</span><a name="line.47">      </a>
+<span class="sourceLineNo">048</span><a name="line.48">         // Start the event queue in order to start the processing</a>
+<span class="sourceLineNo">049</span><a name="line.49">         // of events</a>
+<span class="sourceLineNo">050</span><a name="line.50">         //</a>
+<span class="sourceLineNo">051</span><a name="line.51">         ApplicationEventQueue.start();</a>
+<span class="sourceLineNo">052</span><a name="line.52">      }</a>
+<span class="sourceLineNo">053</span><a name="line.53">   </a>
+<span class="sourceLineNo">054</span><a name="line.54">      /**</a>
+<span class="sourceLineNo">055</span><a name="line.55">       * The standard Java main method. It creates an instance of the enclosing class and</a>
+<span class="sourceLineNo">056</span><a name="line.56">       * calls it's initialise() method to setup and start the microwave application.</a>
+<span class="sourceLineNo">057</span><a name="line.57">       */</a>
+<span class="sourceLineNo">058</span><a name="line.58">      public static void main(String[] args) {</a>
+<span class="sourceLineNo">059</span><a name="line.59">         Crossing crossing = new Crossing();</a>
+<span class="sourceLineNo">060</span><a name="line.60">         crossing.initialise();</a>
+<span class="sourceLineNo">061</span><a name="line.61">      }</a>
+<span class="sourceLineNo">062</span><a name="line.62">   </a>
+<span class="sourceLineNo">063</span><a name="line.63">   }</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>
